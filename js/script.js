@@ -6,20 +6,22 @@ $(function(){
 		nav = $('#mainnav ul a'),
 		curPos = $(this).scrollTop();
 	
-	if (winW > 800){
-		var headerH =0;
+	if (winW > 880){
+		var headerH =20;
 	}
 	else{
-		var headerH =70;
+		var headerH =60;
 	}
 	
 	$(nav).on('click', function(){
+		nav.removeClass('active');
   	var $el = $(this),
 		id = $el.attr('href');
  		$('html, body').animate({
    		scrollTop: $(id).offset().top - headerH
  		}, 500);
-		if (winW < 890){
+		$(this).addClass('active');
+		if (winW < 880){
 			$('#menuWrap').next().slideToggle();
 			$('#menuBtn').removeClass('close');
 		}
@@ -35,4 +37,5 @@ $(function(){
 		$(this).next().slideToggle();
 		$('#menuBtn').removeClass('close');
 	});
+
 });
